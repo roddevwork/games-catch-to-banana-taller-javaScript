@@ -1,0 +1,80 @@
+:root {
+--background-color-primary : #13111C;
+--background-color-secondary : #F8CB15;
+}
+body {
+  background-color: var(--background-color-primary);
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+}
+
+canvas {
+  border: 4px solid #fff;
+  border-radius: 8px;
+  background-color: var(--background-color-secondary);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 18px;
+}
+
+button {
+  background-color: #333;
+  color: #F7DF1E;
+  border-radius: 8px;
+  border-color: #fff;
+  font-family: inherit;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 20px;
+  width: 100px;
+}
+
+button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.messages {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 460px;
+  text-align: center;
+}
+
+p {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+@media (max-width: 440px) {
+  
+  .btn-container {
+    width: 100%;
+  }
+
+ button {
+  
+  padding: 5px 5px;
+  width: 80px;
+}
+ 
+}
