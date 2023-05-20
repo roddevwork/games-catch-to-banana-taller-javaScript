@@ -82,21 +82,39 @@ function moveByKeys(event) {
 
 function moveUp() {
   console.log("Me quiero mover hacia arriba!");
-  playerPosition.y -= elementSize
-  startGame()
+  if ((playerPosition.y - elementSize) < elementSize) {
+    console.log('out');
+  } else {
+    playerPosition.y -= elementSize
+    startGame()
+  }
 }
 function moveRight() {
   console.log("me quiero mover hacia la Derecha");
-  playerPosition.x += elementSize
-  startGame()
+  if ((playerPosition.x + elementSize) > canvasSize) {
+    console.log('out');
+  } else {
+    playerPosition.x += elementSize
+    startGame()
+  }
 }
+
 function moveDown() {
   console.log("me quiero mover hacia abajo");
-  playerPosition.y += elementSize
-  startGame()
+  if ((playerPosition.y + elementSize) > canvasSize) {
+    console.log('out');
+  } else {
+    playerPosition.y += elementSize
+    startGame()
+  }
 }
+
 function moveLeft() {
   console.log("me quiero mover hacia la Izquierda");
-  playerPosition.x -= elementSize
-  startGame()
+  if ((playerPosition.x - elementSize) < elementSize) {
+    console.log('out');
+  } else {
+    playerPosition.x -= elementSize
+    startGame()
+  }
 }
