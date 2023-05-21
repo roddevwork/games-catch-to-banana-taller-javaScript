@@ -5,12 +5,18 @@ const btnRight = document.querySelector("#btn-right")
 const btnDown = document.querySelector("#btn-down")
 const btnLeft = document.querySelector("#btn-left")
 const spanLives = document.querySelector('#lives')
+const spanTime = document.querySelector('#time')
+const spanRecord = document.querySelector('#record')
+const pResult = document.querySelector('#result')
 
 
 let canvasSize
 let elementSize
 let level = 0
 let lives = 3
+let timeStart
+let timePlayer
+let timeInterval
 
 const playerPosition = {
   x: undefined,
@@ -52,6 +58,12 @@ function startGame() {
   if (!map) {
     gameWin()
     return;
+  }
+
+  if (!timeStart) {
+    timeStart = Date.now()
+    timeINterval = setInterval(showTime, 100)
+    showRecord()
   }
 
   const mapRows = map.trim().split("\n")
@@ -129,6 +141,7 @@ function levelFail() {
   if (lives <= 0) {
     level = 0
     lives = 3
+    timeStart = undefined
 
   }
 
@@ -139,11 +152,38 @@ function levelFail() {
 
 function gameWin() {
   console.log("terminaste el juego");
+  clearInterval(timeINterval)
+
+  const recordTime = localStorage.getItem('record_time')
+  const playerTime = Date.now() - timeStart
+
+  if (recordTime) {
+    if (recordTime >= playerTime) {
+      localStorage.setItem('record_time', playerTime)
+      pResult.innerHTML = 'Superaste el Record'
+    } else {
+      pResult.innerHTML = "No superaste el record";
+    }
+  } else {
+    localStorage.setItem('record_time', playerTime)
+    pResult.innerHTML = 'Ahora trata de superar tu tiempo!'
+
+
+  }
+  console.log("recordTime:", recordTime);
+  console.log("playerTime:", playerTime);
 }
 
 function showLives() {
   const heartArray = Array(lives).fill(emojis['HEART'])
   spanLives.innerHTML = heartArray.join(' ')
+}
+
+function showTime() {
+  spanTime.innerHTML = Date.now() - timeStart
+}
+function showRecord() {
+  spanRecord.innerHTML = localStorage.getItem('record_time')
 }
 
 window.addEventListener('keydown', moveByKeys)
