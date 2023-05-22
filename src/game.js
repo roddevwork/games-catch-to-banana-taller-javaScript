@@ -44,24 +44,19 @@ btnLeft.addEventListener('click', moveLeft)
 btnResetId.addEventListener("click", resetGame)
 btnPlay.addEventListener("click", showTime)
 
+//---> Functions
 function setCanvasSize() {
-  if (window.innerHeight > window.innerWidth) {
-    canvasSize = window.innerWidth * .8
-  }
-  if (window.innerWidth > window.innerHeight) {
-    canvasSize = window.innerHeight * .8
-  }
+  if (window.innerHeight > window.innerWidth) canvasSize = window.innerWidth * .8
+  if (window.innerWidth > window.innerHeight) canvasSize = window.innerHeight * .8
 
-  // canvasSize = (canvasSize.toFixed(0))
-
+  fixNumber(canvasSize)
 
   canvas.setAttribute('width', canvasSize)
   canvas.setAttribute('height', canvasSize)
 
-  elementSize = (canvasSize / 10) - 1.5
+  elementSize = (canvasSize / 10) - 1
   game.font = elementSize + 'px Verdana'
   game.textAlign = "end"
-
 
   playerPosition.x = undefined
   playerPosition.y = undefined
@@ -70,16 +65,12 @@ function setCanvasSize() {
 }
 
 function startGame() {
-
-
   const map = maps[level]
 
   if (!map) {
     gameWin()
     return;
   }
-
-
 
   const mapRows = map.trim().split("\n")
   const mapRowsColumn = mapRows.map(row => row.trim().split(""))
@@ -118,16 +109,16 @@ function startGame() {
   movePLayer()
 }
 
-function movePLayer() {
+function fixNumber(number) {
+  return Number(number.toFixed(2));
+}
 
+function movePLayer() {
   const giftCollisionX = playerPosition.x.toFixed(3) == giftPosition.x.toFixed(3)
   const giftCollisionY = playerPosition.y.toFixed(3) == giftPosition.y.toFixed(3)
   const giftCollision = giftCollisionX && giftCollisionY
 
-
-  if (giftCollision) {
-    levelWin()
-  }
+  if (giftCollision) levelWin()
 
   const enemyCollision = enemyPositions.find(enemy => {
     const enemyCollisionX = enemy.x.toFixed(3) == playerPosition.x.toFixed(3)
@@ -135,9 +126,7 @@ function movePLayer() {
     return enemyCollisionX && enemyCollisionY
   })
 
-  if (enemyCollision) {
-    levelFail()
-  }
+  if (enemyCollision) levelFail()
 
   game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y)
 }
@@ -150,14 +139,12 @@ function levelWin() {
 
 function levelFail() {
   lives--
-  console.log(lives);
-
+  // console.log(lives);
 
   if (lives <= 0) {
     level = 0
     lives = 3
     timeStart = undefined
-
   }
 
   playerPosition.x = undefined
@@ -182,8 +169,6 @@ function gameWin() {
   } else {
     localStorage.setItem('record_time', playerTime)
     pResultPantalla.innerHTML = 'Ahora trata de superar tu tiempo!'
-
-
   }
   // console.log("recordTime:", recordTime);
   // console.log("playerTime:", playerTime);
