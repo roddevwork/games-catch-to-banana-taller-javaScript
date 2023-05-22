@@ -52,11 +52,13 @@ button:not(:last-child) {
 
 .messages {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   width: 80%;
   max-width: 460px;
   text-align: center;
+  gap: 20px;
 }
 
 p {
@@ -65,14 +67,17 @@ p {
   width: 100%;
 }
 
-@media (max-width: 440px) {
+
   
+@media screen and (width >= 640px) {
+
   .btn-container {
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+   
   }
 
  button {
-  
   padding: 5px 5px;
   width: 80px;
 }

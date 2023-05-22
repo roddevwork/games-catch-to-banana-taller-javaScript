@@ -8,6 +8,9 @@ const spanLives = document.querySelector('#lives')
 const spanTime = document.querySelector('#time')
 const spanRecord = document.querySelector('#record')
 const pResult = document.querySelector('#result')
+const resetGameBtn = document.querySelector('#reset-game');
+
+resetGameBtn.addEventListener("click", resetGame)
 
 
 let canvasSize
@@ -41,10 +44,16 @@ function setCanvasSize() {
     canvasSize = window.innerHeight * .8
   }
 
+  // canvasSize = (canvasSize.toFixed(3))
+
+
   canvas.setAttribute('width', canvasSize)
   canvas.setAttribute('height', canvasSize)
 
   elementSize = canvasSize / 10
+
+  playerPosition.x = undefined
+  playerPosition.y = undefined
 
   startGame()
 }
@@ -84,7 +93,7 @@ function startGame() {
         if (!playerPosition.x && !playerPosition.y) {
           playerPosition.x = posX
           playerPosition.y = posY
-          console.log(playerPosition);
+          // console.log(playerPosition);
         }
       } else if (col == 'I') {
         giftPosition.x = posX
@@ -184,6 +193,9 @@ function showTime() {
 }
 function showRecord() {
   spanRecord.innerHTML = localStorage.getItem('record_time')
+}
+function resetGame() {
+  location.reload();
 }
 
 window.addEventListener('keydown', moveByKeys)

@@ -1,8 +1,8 @@
 const emojis = {
   '-': ' ',
-  'O': '🚪',
+  'O': '🌴',
   'X': '💣',
-  'I': '🎁',
+  'I': '🍌',
   'PLAYER': '🐵',
   'BOMB_COLLISION': '🔥',
   'GAME_OVER': '👎',
@@ -48,5 +48,18 @@ maps.push(`
   XX-----XXX
   XX-XXXXXXX
   XX-----OXX
+  XXXXXXXXXX
+`);
+maps.push(`
+  OXXXXXXXXX
+  ---XXXXXXX
+  XX--XXXXXX
+  I-X--XXXXX
+  X--X--XXXX
+  XX--X--XXX
+  XXX--X--XX
+  XXXX--X--X
+  XXXXX--X-X
+  XXXXXX---X
   XXXXXXXXXX
 `);
