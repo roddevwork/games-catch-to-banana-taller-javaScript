@@ -2,19 +2,24 @@
 --background-color-primary : #13111C;
 --background-color-secondary : #F8CB15;
 }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
 body {
   background-color: var(--background-color-primary);
   color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 .game-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+
   height: 100vh;
   width: 100vw;
 }
@@ -34,6 +39,11 @@ canvas {
   gap: 18px;
 }
 
+.inactive-btn-container {
+  display: none;
+}
+
+
 button {
   background-color: #333;
   color: #F7DF1E;
@@ -50,31 +60,57 @@ button:not(:last-child) {
   margin-right: 10px;
 }
 
+
+.play-btn button {
+  margin: 20px auto
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+}
+.btn-inactive {
+  display: none;
+}
+.reset-btn {
+  margin-top: 20px;
+}
+
 .messages {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 80%;
   max-width: 460px;
   text-align: center;
-  gap: 20px;
+  color: var(--background-color-secondary);
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-p {
-  display: block;
-  margin: 0;
-  width: 100%;
+.time-record{
+width: 80%;
+display: flex;
+justify-content: space-around;
+font-weight: bold;
+margin: 20px 0;
+
+}
+
+.lives-game {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 10px 0;
 }
 
 
   
 @media screen and (width >= 640px) {
-
-  .btn-container {
+  .game-container {
     display: flex;
-    flex-direction: row;
-   
+   flex-direction: column;
+  }
+ 
+  .lives-game {
+   padding: 5px 0;
   }
 
  button {
@@ -82,4 +118,22 @@ p {
   width: 80px;
 }
  
+}
+
+@media screen and (width >=940px) {
+  .btn-container {
+   display: none;
+    
+  }
+  .lives-game {
+    font-size: 2rem;
+    
+  }
+
+  .reset-btn {
+    margin: 0;
+  }
+
+ 
+
 }

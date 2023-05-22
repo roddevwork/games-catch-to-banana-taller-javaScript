@@ -7,11 +7,11 @@ const btnLeft = document.querySelector("#btn-left")
 const spanLives = document.querySelector('#lives')
 const spanTime = document.querySelector('#time')
 const spanRecord = document.querySelector('#record')
-const pResult = document.querySelector('#result')
-const resetGameBtn = document.querySelector('#reset-game');
-
-resetGameBtn.addEventListener("click", resetGame)
-
+const pResultPantalla = document.querySelector('#result')
+const btnResetId = document.querySelector('#reset-game');
+const btnPlay = document.querySelector('#play-btn');
+const btnContainer = document.querySelector('.btn-container');
+const btnRest = document.querySelector('.reset-btn');
 
 let canvasSize
 let elementSize
@@ -35,6 +35,14 @@ let enemyPositions = []
 
 window.addEventListener('load', setCanvasSize)
 window.addEventListener('resize', setCanvasSize)
+window.addEventListener('keydown', moveByKeys)
+
+btnUp.addEventListener('click', moveUp)
+btnRight.addEventListener('click', moveRight)
+btnDown.addEventListener('click', moveDown)
+btnLeft.addEventListener('click', moveLeft)
+btnResetId.addEventListener("click", resetGame)
+btnPlay.addEventListener("click", showTime)
 
 function setCanvasSize() {
   if (window.innerHeight > window.innerWidth) {
@@ -44,13 +52,16 @@ function setCanvasSize() {
     canvasSize = window.innerHeight * .8
   }
 
-  // canvasSize = (canvasSize.toFixed(3))
+  // canvasSize = (canvasSize.toFixed(0))
 
 
   canvas.setAttribute('width', canvasSize)
   canvas.setAttribute('height', canvasSize)
 
-  elementSize = canvasSize / 10
+  elementSize = (canvasSize / 10) - 1.5
+  game.font = elementSize + 'px Verdana'
+  game.textAlign = "end"
+
 
   playerPosition.x = undefined
   playerPosition.y = undefined
@@ -59,8 +70,7 @@ function setCanvasSize() {
 }
 
 function startGame() {
-  game.font = elementSize + 'px Verdana'
-  game.textAlign = 'end'
+
 
   const map = maps[level]
 
@@ -69,11 +79,7 @@ function startGame() {
     return;
   }
 
-  if (!timeStart) {
-    timeStart = Date.now()
-    timeINterval = setInterval(showTime, 100)
-    showRecord()
-  }
+
 
   const mapRows = map.trim().split("\n")
   const mapRowsColumn = mapRows.map(row => row.trim().split(""))
@@ -137,7 +143,7 @@ function movePLayer() {
 }
 
 function levelWin() {
-  console.log("subiste de nivel");
+  // console.log("subiste de nivel");
   level++
   startGame()
 }
@@ -160,7 +166,7 @@ function levelFail() {
 }
 
 function gameWin() {
-  console.log("terminaste el juego");
+  // console.log("terminaste el juego");
   clearInterval(timeINterval)
 
   const recordTime = localStorage.getItem('record_time')
@@ -169,18 +175,18 @@ function gameWin() {
   if (recordTime) {
     if (recordTime >= playerTime) {
       localStorage.setItem('record_time', playerTime)
-      pResult.innerHTML = 'Superaste el Record'
+      pResultPantalla.innerHTML = 'Superaste el Record'
     } else {
-      pResult.innerHTML = "No superaste el record";
+      pResultPantalla.innerHTML = "No superaste el record";
     }
   } else {
     localStorage.setItem('record_time', playerTime)
-    pResult.innerHTML = 'Ahora trata de superar tu tiempo!'
+    pResultPantalla.innerHTML = 'Ahora trata de superar tu tiempo!'
 
 
   }
-  console.log("recordTime:", recordTime);
-  console.log("playerTime:", playerTime);
+  // console.log("recordTime:", recordTime);
+  // console.log("playerTime:", playerTime);
 }
 
 function showLives() {
@@ -189,20 +195,26 @@ function showLives() {
 }
 
 function showTime() {
+  btnPlay.classList.add('btn-inactive')
+  btnContainer.classList.remove('inactive-btn-container')
+  btnRest.classList.remove('btn-inactive')
+
+  if (!timeStart) {
+    timeStart = Date.now()
+    timeINterval = setInterval(showTime, 100)
+    showRecord()
+  }
+
   spanTime.innerHTML = Date.now() - timeStart
 }
+
 function showRecord() {
   spanRecord.innerHTML = localStorage.getItem('record_time')
 }
+
 function resetGame() {
   location.reload();
 }
-
-window.addEventListener('keydown', moveByKeys)
-btnUp.addEventListener('click', moveUp)
-btnRight.addEventListener('click', moveRight)
-btnDown.addEventListener('click', moveDown)
-btnLeft.addEventListener('click', moveLeft)
 
 function moveByKeys(event) {
   if (event.key === 'ArrowUp') moveUp()
@@ -212,18 +224,19 @@ function moveByKeys(event) {
 }
 
 function moveUp() {
-  console.log("Me quiero mover hacia arriba!");
+  // console.log("Me quiero mover hacia arriba!");
   if ((playerPosition.y - elementSize) < elementSize) {
-    console.log('out');
+    // console.log('out');
   } else {
     playerPosition.y -= elementSize
     startGame()
   }
 }
+
 function moveRight() {
-  console.log("me quiero mover hacia la Derecha");
+  // console.log("me quiero mover hacia la Derecha");
   if ((playerPosition.x + elementSize) > canvasSize) {
-    console.log('out');
+    // console.log('out');
   } else {
     playerPosition.x += elementSize
     startGame()
@@ -231,9 +244,9 @@ function moveRight() {
 }
 
 function moveDown() {
-  console.log("me quiero mover hacia abajo");
+  // console.log("me quiero mover hacia abajo");
   if ((playerPosition.y + elementSize) > canvasSize) {
-    console.log('out');
+    // console.log('out');
   } else {
     playerPosition.y += elementSize
     startGame()
@@ -241,9 +254,9 @@ function moveDown() {
 }
 
 function moveLeft() {
-  console.log("me quiero mover hacia la Izquierda");
+  // console.log("me quiero mover hacia la Izquierda");
   if ((playerPosition.x - elementSize) < elementSize) {
-    console.log('out');
+    // console.log('out');
   } else {
     playerPosition.x -= elementSize
     startGame()
