@@ -43,7 +43,6 @@ canvas {
   display: none;
 }
 
-
 button {
   background-color: #333;
   color: #F7DF1E;
@@ -59,7 +58,6 @@ button {
 button:not(:last-child) {
   margin-right: 10px;
 }
-
 
 .play-btn button {
   margin: 20px auto
@@ -78,11 +76,11 @@ button:not(:last-child) {
 
 .messages {
   margin: 20px auto;
-  width: 80%;
-  max-width: 460px;
+  padding-bottom: 10px;
+  width: 100%;
   text-align: center;
   color: var(--background-color-secondary);
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -91,7 +89,7 @@ width: 80%;
 display: flex;
 justify-content: space-around;
 font-weight: bold;
-margin: 20px 0;
+margin-top: 14px ;
 
 }
 
@@ -102,7 +100,6 @@ margin: 20px 0;
 }
 
 
-  
 @media screen and (width >= 640px) {
   .game-container {
     display: flex;
@@ -113,27 +110,31 @@ margin: 20px 0;
    padding: 5px 0;
   }
 
- button {
+  button {
   padding: 5px 5px;
   width: 80px;
-}
+  }
  
 }
 
 @media screen and (width >=940px) {
   .btn-container {
    display: none;
-    
   }
+
   .lives-game {
     font-size: 2rem;
-    
   }
 
   .reset-btn {
     margin: 0;
   }
 
- 
+  .messages {
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 1.2rem;  
+  }
+
 
 }

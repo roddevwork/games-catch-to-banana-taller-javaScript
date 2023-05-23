@@ -154,10 +154,19 @@ function levelFail() {
 
 function gameWin() {
   // console.log("terminaste el juego");
-  clearInterval(timeINterval)
+  clearInterval(timeInterval)
+
+  btnContainer.classList.add('inactive-btn-container')
 
   const recordTime = localStorage.getItem('record_time')
-  const playerTime = Date.now() - timeStart
+  // const playerTime = Date.now() - timeStart
+  const auxTime = Date.now() - timeStart
+
+  const minutes = ("0" + Math.floor(auxTime % (1000 * 60 * 60) / (1000 * 60))).slice(-2)
+  const seconds = ("0" + Math.floor(auxTime % (1000 * 60) / (1000))).slice(-2)
+
+  const playerTime = `${minutes}: ${seconds} `
+
 
   if (recordTime) {
     if (recordTime >= playerTime) {
@@ -186,11 +195,20 @@ function showTime() {
 
   if (!timeStart) {
     timeStart = Date.now()
-    timeINterval = setInterval(showTime, 100)
+    timeInterval = setInterval(showTime, 100)
     showRecord()
   }
 
-  spanTime.innerHTML = Date.now() - timeStart
+  // spanTime.innerHTML = Date.now() - timeStart
+  const miliSeconsTime = Date.now() - timeStart
+
+  const minutes = ("0" + Math.floor(miliSeconsTime % (1000 * 60 * 60) / (1000 * 60))).slice(-2)
+  const seconds = ("0" + Math.floor(miliSeconsTime % (1000 * 60) / (1000))).slice(-2)
+
+
+
+  spanTime.innerHTML = `${minutes}: ${seconds} `
+
 }
 
 function showRecord() {
@@ -214,6 +232,7 @@ function moveUp() {
     // console.log('out');
   } else {
     playerPosition.y -= elementSize
+    showTime()
     startGame()
   }
 }
@@ -251,3 +270,6 @@ function moveLeft() {
     y: undefined
   }
 }
+
+
+
