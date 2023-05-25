@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GamesRod-</title>
+  <title>catch to banana</title>
   <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body>
-  <div class="game-container">
-    <p class="lives-game"><span id="lives"></span></p>
+  <section class="game-container">
+    <p id="lives" class="lives-game"> </p>
+    <span class="message-win inactive" id="message-win"></span>
+    <p class="level-game ">Level <span id="level-number">1</span><span>/9</span> </p>
 
     <canvas id="game"></canvas>
 
@@ -19,6 +21,7 @@
       <p>Tiempo: <span id="time"></span></p>
       <p>Record: <span id="record"></span></p>
     </div>
+
     <div class="messages">
       <p id="result"></p>
     </div>
@@ -40,12 +43,7 @@
     <div class="reset-btn btn-inactive">
       <button id="reset-game">Reiniciar</button>
     </div>
-
-
-
-  </div>
-
-  </div>
+  </section>
 
   <script src="src/maps.js"></script>
   <script src="src/game.js"></script>
