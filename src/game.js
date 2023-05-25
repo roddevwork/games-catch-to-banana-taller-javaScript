@@ -17,9 +17,6 @@ const levelNumber = document.querySelector('#level-number')
 const levelGame = document.querySelector('#level-game')
 const messageWin = document.querySelector('#message-win')
 
-
-
-
 let canvasSize
 let elementSize
 let level = 0
