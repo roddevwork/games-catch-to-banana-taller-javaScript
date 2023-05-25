@@ -34,7 +34,7 @@ maps.push(`
   XX--XXX-XX
   XXXX-----X
   XXXXXXXX-I
-//   `);
+  `);
 maps.push(`
   I-----XXXX
   XXXXX-XXXX
