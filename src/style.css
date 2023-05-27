@@ -135,14 +135,7 @@ button {
 }
 .reset-btn:hover  {
   transform: scale(1.5);
-
 }
-
-.svg-reload {
-  width: 32px;
-  height: 32px;
-}
-
 
 @media screen and (width >= 640px) {
   button {
@@ -158,12 +151,6 @@ button {
   .lives-game {
    padding: 5px 0;
   }
-
-  .svg-reload {
-    width: 64px;
-    height: 64px;
-  }
-
 }
 
 @media screen and (width >=940px) {
@@ -185,12 +172,4 @@ button {
     margin: 0 ;
     font-size: 2rem;
   }
-
-  .svg-reload {
-    width: 64px;
-    height: 64px;
-  }
-
- 
-  
 }

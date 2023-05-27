@@ -3,7 +3,7 @@
 
 <h3>Hello Visitor!!</h3>
 
-# Project: Workshop javascript videogames
+# Project: Workshop javascript videogames - catch to banana
 
 ## Website:
 
@@ -14,7 +14,7 @@
 </kbd>
  
 
-
+---
 ## Description:
 
 - Video game workshop in Platzi. What we did with Html, Css and JavaScript.
@@ -26,8 +26,6 @@
 - Layout and interaction with the user by the student
 
 - Added own functionalities
-
-
 
 
 ## Autor:
