@@ -27,11 +27,10 @@ button {
   border-radius: 8px;
   font-family: inherit;
   font-weight: bold;
-  margin: 0;
-  padding: 5px 20px;
-  width: 100px;
+  padding: 15px 20px;
+  margin: 0 ;
   border-color: var(--color-primary);
-  background-color: #333;
+  background-color: var(--background-color-primary);
   color: var(--color-secondary);
 }
 
@@ -40,7 +39,6 @@ button {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   height: 100vh;
   width: 100vw;
 }
@@ -111,7 +109,12 @@ button {
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 18px;
+  gap: 20px;
+}
+
+.btn-2 {
+  display: flex;
+  gap: 15px;
 }
 
 .inactive-btn-container {
@@ -135,6 +138,11 @@ button {
 
 }
 
+.svg-reload {
+  width: 32px;
+  height: 32px;
+}
+
 
 @media screen and (width >= 640px) {
   button {
@@ -149,6 +157,11 @@ button {
  
   .lives-game {
    padding: 5px 0;
+  }
+
+  .svg-reload {
+    width: 64px;
+    height: 64px;
   }
 
 }
@@ -172,5 +185,12 @@ button {
     margin: 0 ;
     font-size: 2rem;
   }
+
+  .svg-reload {
+    width: 64px;
+    height: 64px;
+  }
+
+ 
   
 }
