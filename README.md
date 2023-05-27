@@ -7,7 +7,7 @@
 
 ## Website:
 
-- [click here](https://roddevwork.github.io/taller-practico-javaScript-videoGames/)
+- [click here](https://roddevwork.github.io/games-catch-to-banana-taller-javaScript/)
 
 <kbd>
  <img src="assets/img/home-page.png" alt="home page" width="200px">
