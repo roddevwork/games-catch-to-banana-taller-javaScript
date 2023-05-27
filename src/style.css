@@ -71,8 +71,20 @@ button {
   justify-content: space-around;
   font-weight: bold;
   margin-top: 14px ;
-
   }
+
+.time-record__time,
+.time-record__record {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.time__counter,
+.record__counter {
+  font-size: 1.8rem;
+}
 
 .messages {
     margin: 20px auto;
@@ -115,8 +127,12 @@ button {
 }
 
 .reset-btn  {
-  margin-top: 10px;
- 
+  margin-top: 40px;
+  cursor: pointer;
+}
+.reset-btn:hover  {
+  transform: scale(1.5);
+
 }
 
 

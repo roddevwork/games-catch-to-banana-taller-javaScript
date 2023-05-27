@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/img/monkey-icon.svg" type="image/x-icon">
   <title>catch to banana</title>
   <link rel="stylesheet" href="src/style.css">
 </head>
@@ -18,8 +19,14 @@
     <canvas id="game"></canvas>
 
     <div class="time-record">
-      <p>Tiempo: <span id="time"></span></p>
-      <p>Record: <span id="record"></span></p>
+      <div class="time-record__time">
+        <img src="assets/img/hourGlass.svg" alt="hour-Glass">
+        <span class="time__counter" id="time"></span>
+      </div>
+      <div class="time-record__record">
+        <img src="assets/img/podium.svg" alt="podium">
+        <span class=" record__counter" id="record"></span>
+      </div>
     </div>
 
     <div class="messages">
@@ -40,9 +47,11 @@
         <button id="btn-right">Derecha</button>
       </div>
     </div>
+
     <div class="reset-btn btn-inactive">
-      <button id="reset-game">Reiniciar</button>
+      <img id="reset-game" src="assets/img/reload.svg" alt="">
     </div>
+
   </section>
 
   <script src="src/maps.js"></script>
