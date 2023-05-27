@@ -17,7 +17,7 @@
 ---
 ## Description:
 
-- Video game workshop in Platzi. What we did with Html, Css and JavaScript.
+- This is my version of the "video game workshop in Platzi". We did with Html, Css and JavaScript.
 
 - In the course the logics were made
 
@@ -25,7 +25,7 @@
 
 - Layout and interaction with the user by the student
 
-- Added own functionalities
+- Added a lot of own functionalities
 
 
 ## Autor:
