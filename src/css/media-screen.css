@@ -1,0 +1,36 @@
+
+@media screen and (width >= 640px) {
+  button {
+    padding: 5px 10px;
+  }
+
+  .game-container {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .lives-game {
+   padding: 5px 0;
+  }
+}
+
+@media screen and (width >=940px) {
+  .btn-container {
+   display: none;
+  }
+
+  .lives-game {
+    font-size: 2rem;
+  }
+
+  .messages {
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 1.2rem;  
+  }
+  
+  .reset-btn {
+    margin: 0 ;
+    font-size: 2rem;
+  }
+}

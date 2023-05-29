@@ -58,8 +58,6 @@ btnSound.addEventListener('click', toggleMusic)
 //-> Functions
 
 function toggleMusic() {
-  console.log("click");
-
   if (!musicGame.paused) {
     musicGame.pause();
     audioState.innerHTML = "OFF";
@@ -199,14 +197,14 @@ function gameWin() {
   if (recordTime) {
     if (recordTime >= playerTime) {
       localStorage.setItem('record_time', playerTime)
-      pResultPantalla.innerHTML = 'Superaste el Record'
+      pResultPantalla.innerHTML = 'You beat the record'
 
     } else {
-      pResultPantalla.innerHTML = "No superaste el record";
+      pResultPantalla.innerHTML = "Try again to beat the record";
     }
   } else {
     localStorage.setItem('record_time', playerTime)
-    pResultPantalla.innerHTML = 'Ahora trata de superar tu tiempo!'
+    pResultPantalla.innerHTML = 'Now try to beat your time!'
   }
 }
 
