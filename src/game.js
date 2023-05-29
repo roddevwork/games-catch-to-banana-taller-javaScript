@@ -16,6 +16,9 @@ const btnRest = document.querySelector('.reset-btn');
 const levelNumber = document.querySelector('#level-number')
 const levelGame = document.querySelector('#level-game')
 const messageWin = document.querySelector('#message-win')
+const btnSound = document.querySelector('#btn-sound');
+const musicGame = document.querySelector('#music-game');
+const audioState = document.querySelector('#audio-state');
 
 let canvasSize
 let elementSize
@@ -49,8 +52,23 @@ btnDown.addEventListener('click', moveDown)
 btnLeft.addEventListener('click', moveLeft)
 btnResetId.addEventListener("click", resetGame)
 btnPlay.addEventListener("click", showTime)
+btnSound.addEventListener('click', toggleMusic)
+
 
 //-> Functions
+
+function toggleMusic() {
+  console.log("click");
+
+  if (!musicGame.paused) {
+    musicGame.pause();
+    audioState.innerHTML = "OFF";
+  } else {
+    musicGame.play();
+    audioState.innerHTML = "ON";
+  }
+}
+
 function fixNumber(number) {
   return Number(number.toFixed(5));
 }
@@ -102,8 +120,6 @@ function startGame() {
         if (!playerPosition.x && !playerPosition.y) {
           playerPosition.x = fixNumber(posX)
           playerPosition.y = fixNumber(posY)
-          console.log("playerPosition:", playerPosition);
-
         }
       } else if (col == 'I') {
         giftPosition.x = posX
@@ -169,6 +185,7 @@ function gameWin() {
   btnContainer.classList.add('inactive-btn-container')
   spanLives.classList.add('inactive')
   messageWin.classList.remove('inactive')
+  btnSound.classList.add('inactive')
   messageWin.innerHTML = `${emojis['WIN']} You win!! ${emojis['WIN']}`
 
   const recordTime = localStorage.getItem('record_time')
@@ -202,6 +219,7 @@ function showTime() {
   btnPlay.classList.add('btn-inactive')
   btnContainer.classList.remove('inactive-btn-container')
   btnRest.classList.remove('btn-inactive')
+  btnSound.classList.add('btn-inactive')
 
   if (!timeStart) {
     timeStart = Date.now()

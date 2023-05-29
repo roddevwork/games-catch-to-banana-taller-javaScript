@@ -5,57 +5,37 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="assets/img/monkey-icon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/img/monkey-icon.svg" type="image/x-icon">
   <title>catch to banana</title>
-  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="src/index.css">
 </head>
 
 <body>
-  <section class="game-container">
-    <p id="lives" class="lives-game"> </p>
-    <span class="message-win inactive" id="message-win"></span>
-    <p class="level-game ">Level <span id="level-number">1</span><span>/9</span> </p>
+  <main>
+    <h1>Welcome to catch to Banana</h1>
 
-    <canvas id="game"></canvas>
+    <h2>Game instructions</h2>
 
-    <div class="time-record">
-      <div class="time-record__time">
-        <img src="assets/img/hourGlass.svg" alt="hour-Glass">
-        <span class="time__counter" id="time"></span>
-      </div>
-      <div class="time-record__record">
-        <img src="assets/img/podium.svg" alt="podium">
-        <span class=" record__counter" id="record"></span>
-      </div>
-    </div>
+    <p>If you are on pc use the directional pad to move.
+    </p>
+    <p>If you are on a cell phone, use the directional buttons.</p>
+    <p>
+      The goal is to reach the banan without touching the bombs in each level, improving your time each time.
+    </p>
+    <p>
+      Your record will be recorded to improve it each time.
+    </p>
 
-    <div class="messages">
-      <p id="result"></p>
-    </div>
+    <a href="src/game.html">Go to Game</a>
 
-    <div class="play-btn">
-      <button id="play-btn">Jugar</button>
-    </div>
 
-    <div class="btn-container inactive-btn-container">
-      <div class="btn-1">
-        <button id="btn-up">Arriba</button>
-      </div>
-      <div class="btn-2">
-        <button id="btn-left">Izquierda</button>
-        <button id="btn-down">Abajo</button>
-        <button id="btn-right">Derecha</button>
-      </div>
-    </div>
 
-    <div class="reset-btn btn-inactive">
-      <img id="reset-game" src="assets/img/reload.svg" alt="">
-    </div>
+  </main>
 
-  </section>
+  <footer>
+    <p>by 👉 RM Design</p>
+  </footer>
 
-  <script src="src/maps.js"></script>
-  <script src="src/game.js"></script>
 </body>
 
 </html>

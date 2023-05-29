@@ -94,14 +94,31 @@ button {
     color: var(--color-secondary);
 }  
 
+.play-btn {
+  display: flex;
+  justify-content: center; 
+  gap: 30px;
+}
+
 .play-btn button {
-  margin: 20px auto
   padding: 10px 20px;
   font-size: 1.5rem;
   font-weight: bold;
   width: 100%;
   cursor: pointer;
 }
+
+.btn-sound button{
+  padding-left: 30px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+
+
+  
+}
+
+
 
 .btn-container {
   display: flex;

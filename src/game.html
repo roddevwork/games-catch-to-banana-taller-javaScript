@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/img/monkey-icon.svg" type="image/x-icon">
+  <title>catch to banana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="game-container">
+    <p id="lives" class="lives-game"> </p>
+    <span class="message-win inactive" id="message-win"></span>
+    <p class="level-game ">Level <span id="level-number">1</span><span>/9</span> </p>
+
+    <canvas id="game"></canvas>
+
+    <div class="time-record">
+      <div class="time-record__time">
+        <img src="../assets/img/hourGlass.svg" alt="hour-Glass">
+        <span class="time__counter" id="time"></span>
+      </div>
+      <div class="time-record__record">
+        <img src="../assets/img/podium.svg" alt="podium">
+        <span class=" record__counter" id="record"></span>
+      </div>
+    </div>
+
+    <div class="messages">
+      <p id="result"></p>
+    </div>
+
+    <div class="play-btn">
+      <button id="play-btn">Jugar</button>
+      <button id="btn-sound" class="btn-sound">Sound:<span id="audio-state">off</span></button>
+    </div>
+
+
+
+    <div class="btn-container inactive-btn-container">
+      <div class="btn-1">
+        <button id="btn-up">Arriba</button>
+      </div>
+      <div class="btn-2">
+        <button id="btn-left">Izquierda</button>
+        <button id="btn-down">Abajo</button>
+        <button id="btn-right">Derecha</button>
+      </div>
+    </div>
+
+    <div class="reset-btn btn-inactive">
+      <img id="reset-game" src="../assets/img/reload.svg" alt="">
+    </div>
+
+  </section>
+
+  <audio loop id="music-game" src="../assets/music/sound.mp3"></audio>
+  <script src="maps.js"></script>
+  <script src="game.js"></script>
+</body>
+
+</html>
